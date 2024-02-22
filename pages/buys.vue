@@ -65,7 +65,7 @@
               </v-row>
               <v-row>
                 <v-col cols="6">
-                  <v-btn color="primary" @click="save()">
+                  <v-btn color="primary" :disabled="isDisabled" @click="save()">
                     Guardar
                   </v-btn>
                 </v-col>
@@ -101,6 +101,11 @@ export default {
       creditCardId: this.$route.params.id,
       positiveNumber: value =>
         /^\d+(\.\d+)?$/.test(value) && parseFloat(value) >= 0
+    }
+  },
+  computed: {
+    isDisabled () {
+      return !(this.customerName && this.customerlastName && this.creditCardNumber && this.purchaseDate && this.description && this.amount)
     }
   },
   beforeMount () {
