@@ -16,8 +16,8 @@
                 <td>{{ item.id }}</td>
                 <td>{{ formatDateString(item.date) }}</td>
                 <td>{{ item.description }}</td>
-                <td>{{ item.transactionType.name === 'Compra' ? item.amount : '' }}</td>
-                <td>{{ item.transactionType.name === 'Pago' ? item.amount : '' }}</td>
+                <td>{{ item.transactionType.name === 'Compra' ? item.amount.toFixed(2) : '' }}</td>
+                <td>{{ item.transactionType.name === 'Pago' ? item.amount.toFixed(2) : '' }}</td>
               </tr>
             </template>
           </v-data-table>
@@ -71,14 +71,8 @@ export default {
       const year = dateString.slice(0, 4)
       const month = dateString.slice(5, 7)
       const day = dateString.slice(8, 10)
-
-      // Formatear la cadena de fecha en el formato deseado
       return `${day}/${month}/${year}`
     }
   }
 }
 </script>
-
-<style scoped>
-/* Estilos específicos para esta página */
-</style>

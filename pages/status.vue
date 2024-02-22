@@ -16,17 +16,17 @@
               </v-col>
               <v-col cols="6" md="6">
                 <div>
-                  <p><b>Saldo Actual:</b> ${{ currentBalance }}</p>
-                  <p><b>Limite:</b> ${{ limit }}</p>
-                  <p><b>Interes Bonificable:</b> ${{ bonifiableInterest }}</p>
-                  <p><b>Saldo Disponible:</b> ${{ limit - currentBalance }}</p>
+                  <p><b>Saldo Actual:</b> ${{ currentBalance.toFixed(2) }}</p>
+                  <p><b>Limite:</b> ${{ limit.toFixed(2) }}</p>
+                  <p><b>Interes Bonificable:</b> ${{ bonifiableInterest.toFixed(2) }}</p>
+                  <p><b>Saldo Disponible:</b> ${{ (limit - currentBalance).toFixed(2) }}</p>
                 </div>
               </v-col>
               <v-col cols="6">
                 <div>
-                  <p><b>Cuota Mínima a Pagar:</b> ${{ currentBalance * (percentageMinimumBalance / 100) }}</p>
-                  <p><b>Monto total a Pagar:</b> ${{ currentBalance }}</p>
-                  <p><b>Monto total de Contado con Intereses:</b> ${{ currentBalance + bonifiableInterest }}</p>
+                  <p><b>Cuota Mínima a Pagar:</b> ${{ (currentBalance * (percentageMinimumBalance / 100)).toFixed(2) }}</p>
+                  <p><b>Monto total a Pagar:</b> ${{ currentBalance.toFixed(2) }}</p>
+                  <p><b>Monto total de Contado con Intereses:</b> ${{ (currentBalance + bonifiableInterest).toFixed(2) }}</p>
                 </div>
               </v-col>
             </v-row>
@@ -39,7 +39,7 @@
                   <td v-show="item.transactionType.id === 1">{{ item.id }}</td>
                   <td v-show="item.transactionType.id === 1">{{ formatDateString(item.date) }}</td>
                   <td v-show="item.transactionType.id === 1">{{ item.description }}</td>
-                  <td v-show="item.transactionType.id === 1">${{ item.amount }}</td>
+                  <td v-show="item.transactionType.id === 1">${{ item.amount.toFixed(2) }}</td>
                 </tr>
               </template>
             </v-data-table>
